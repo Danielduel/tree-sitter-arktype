@@ -1,0 +1,115 @@
+============================================
+Basic types
+============================================
+
+number | string
+
+---
+
+(type
+  (expression
+    (identifier
+      (primitive)))
+  (expression
+    (operator))
+  (expression
+    (identifier
+      (primitive))))
+
+============================================
+Parenthesized types
+============================================
+
+(number | string)
+
+---
+
+(type
+  (parenthesized_expression
+    (expression
+      (identifier
+        (primitive)))
+    (expression
+      (operator))
+    (expression
+      (identifier
+        (primitive)))))
+
+============================================
+Regexp
+============================================
+
+/^a.*z$/
+
+---
+
+(type
+  (expression
+    (regex
+      pattern: (regex_pattern))))
+
+============================================
+Complex
+============================================
+
+(number | string.email[] < 10) | /^asdf$/
+
+---
+
+(type
+  (parenthesized_expression
+    (expression
+      (identifier
+        (primitive)))
+    (expression
+      (operator))
+    (expression
+      (member_expression
+        object: (primitive)
+        property: (keyword)))
+    (expression
+      (operator))
+    (expression
+      (operator))
+    (expression
+      (identifier
+        (keyword))))
+  (expression
+    (operator))
+  (expression
+    (regex
+      pattern: (regex_pattern))))
+
+============================================
+string.normalize
+============================================
+
+string.normalize
+
+---
+
+(type
+  (expression
+    (member_expression
+      object: (primitive)
+      property: (keyword))))
+
+============================================
+string.normalize.NFC.preformatted
+============================================
+
+string.normalize.NFC.preformatted
+
+---
+
+(type
+  (expression
+    (member_expression
+      object: (primitive)
+      property: (keyword)
+      property: (keyword)))
+  (expression
+    (operator))
+  (expression
+    (identifier
+      (keyword))))
