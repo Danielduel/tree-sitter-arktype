@@ -113,3 +113,16 @@ string.normalize.NFC.preformatted
   (expression
     (identifier
       (keyword))))
+
+============================================
+Date
+============================================
+
+Date
+
+---
+
+(type
+  (expression
+    (identifier
+      (keyword))))
